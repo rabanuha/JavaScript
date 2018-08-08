@@ -17,9 +17,4 @@ var mainList = {
 		open : true
 };
 
-
-
 alert('Бюджет за один день ' + budget / 30);
-
-
-console.log(mainList);
