@@ -17,4 +17,5 @@ var mainList = {
 		open : true
 };
 
-alert('Бюджет за один день ' + budget / 30);
+
+alert( "Бюджет за один день: " + (budget / 30).toFixed(2) + "р.");
