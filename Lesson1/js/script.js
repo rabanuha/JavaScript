@@ -10,11 +10,11 @@ var goods3 = prompt("Какой тип товаров будем продава�
 var shopGoods = [goods1, goods2, goods3];
 
 var mainList = {
-		budget,
-		nameShop,
-		shopGoods,
-		employers : {},
-		open : true
+				budget,
+				nameShop,
+				shopGoods,
+				employers : {},
+			 open : true
 };
 
 
