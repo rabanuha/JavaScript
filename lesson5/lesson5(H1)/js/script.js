@@ -11,9 +11,6 @@ let body = document.getElementsByTagName('body')[0],
 
 
 
-				console.log(ul);
-				console.log(li);
-
 ul.insertBefore(li[2], li[1]);
 
 li5.classList.add('menu-item');
