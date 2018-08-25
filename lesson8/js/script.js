@@ -51,7 +51,7 @@ window.addEventListener('DOMContentLoaded', function () {
 					'hours' : hours,
 					'minutes' : minutes,
 					'seconds' : seconds
-				};
+				}; 
 			};
 
 			function setClock(id, endtime) {
