@@ -78,10 +78,6 @@ window.addEventListener('DOMContentLoaded', function () {
 									} else {
 										hours.innerHTML = t.hours;
 									}
-									
-								
-									
-
 									if (t.total <= 0) {		
 										hours.innerHTML = '00';
 										minutes.innerHTML = '00';
