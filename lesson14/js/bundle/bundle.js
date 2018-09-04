@@ -385,7 +385,7 @@ function calc() {
     }
   });
   restDays.addEventListener('change', function () {
-    daysSum = this.value;
+    daysSum = +this.value;
     total = (daysSum + personsSum) * 4000;
 
     if (persons.value == '' || restDays.value == '') {
