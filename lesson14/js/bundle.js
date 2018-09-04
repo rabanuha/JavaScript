@@ -291,7 +291,7 @@ function ajax() {
   }); // Form-contact
 
   var contact_form = document.getElementById('form');
-  var statusMessageContact = document.createElement('div');
+  statusMessageContact = document.createElement('div');
   statusMessageContact.classList.add('status-contact');
   contact_form.addEventListener('submit', function (event) {
     event.preventDefault();

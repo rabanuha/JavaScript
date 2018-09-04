@@ -1,58 +1,63 @@
-function timer () {
-	let deadLine = '2018-08-29';
+"use strict";
 
-	function getTimeRemaining(endtime) {
-		let t = Date.parse(endtime) - Date.parse(new Date()),
-		seconds = Math.floor( (t/1000) % 60),
-		minutes = Math.floor( (t/1000/60) % 60),
-		hours = Math.floor( (t/(1000*60*60)) );
+function timer() {
+  var deadLine = '2018-09-29';
 
+  function getTimeRemaining(endtime) {
+    var t = Date.parse(endtime) - Date.parse(new Date()),
+        seconds = Math.floor(t / 1000 % 60),
+        minutes = Math.floor(t / 1000 / 60 % 60),
+        hours = Math.floor(t / (1000 * 60 * 60));
+    return {
+      'total': t,
+      'hours': hours,
+      'minutes': minutes,
+      'seconds': seconds
+    };
+  }
 
-		return {
-			'total' : t,
-			'hours' : hours,
-			'minutes' : minutes,
-			'seconds' : seconds
-		}; 
-	};
+  ;
 
-	function setClock(id, endtime) {
+  function setClock(id, endtime) {
+    var timer = document.getElementById(id),
+        hours = timer.querySelector('.hours'),
+        minutes = timer.querySelector('.minutes'),
+        seconds = timer.querySelector('.seconds');
 
-		let timer = document.getElementById(id),
-						hours = timer.querySelector('.hours'),
-						minutes = timer.querySelector('.minutes'),
-						seconds = timer.querySelector('.seconds');
+    function updateClock() {
+      var t = getTimeRemaining(endtime);
 
-						function updateClock() {
-							let t = getTimeRemaining(endtime);
-							if ((t.seconds + '').length < 2) {
-								seconds.innerHTML = '0' + t.seconds;
-							} else {
-								seconds.innerHTML = t.seconds;
-							}
-							if ((t.minutes + '').length < 2) {
-								minutes.innerHTML = '0' + t.minutes;
-							} else {
-								minutes.innerHTML = t.minutes;
-							}
-							if ((t.hours + '').length < 2) {
-								hours.innerHTML = '0' + t.hours;
-							} else {
-								hours.innerHTML = t.hours;
-							}
-							if (t.total <= 0) {		
-								hours.innerHTML = '00';
-								minutes.innerHTML = '00';
-								seconds.innerHTML = '00';
-							} 
-						};
+      if ((t.seconds + '').length < 2) {
+        seconds.innerHTML = '0' + t.seconds;
+      } else {
+        seconds.innerHTML = t.seconds;
+      }
 
-						updateClock();
-						let timeInterval = setInterval(updateClock, 1000);
+      if ((t.minutes + '').length < 2) {
+        minutes.innerHTML = '0' + t.minutes;
+      } else {
+        minutes.innerHTML = t.minutes;
+      }
 
-	};
+      if ((t.hours + '').length < 2) {
+        hours.innerHTML = '0' + t.hours;
+      } else {
+        hours.innerHTML = t.hours;
+      }
 
-	setClock('timer', deadLine);
+      if (t.total <= 0) {
+        hours.innerHTML = '00';
+        minutes.innerHTML = '00';
+        seconds.innerHTML = '00';
+      }
+    }
+
+    ;
+    setInterval(updateClock, 1000);
+  }
+
+  ;
+  setClock('timer', deadLine);
 }
 
 module.exports = timer;

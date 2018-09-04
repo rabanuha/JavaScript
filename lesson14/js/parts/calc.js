@@ -1,48 +1,53 @@
-function calc () {
-	let persons = document.getElementsByClassName('counter-block-input')[0],
-					restDays = document.getElementsByClassName('counter-block-input')[1],
-					place = document.getElementById('select'),
-					totalValue = document.getElementById('total');
-					personsSum = 0,
-					daysSum = 0,
-					total = 0;
-					persons.oninput = e => e.target.value = e.target.value.replace(/\D/g, '');
-					restDays.oninput = e => e.target.value = e.target.value.replace(/\D/g, '');
+"use strict";
 
-					totalValue.innerHTML = 0;
+require("core-js/modules/es6.regexp.replace");
 
-					persons.addEventListener('change', function () {
-						personsSum = +this.value
-						total = (daysSum + personsSum)*4000;
-						if (restDays.value == '' || persons.value == '') {
-									totalValue.innerHTML = 0;
-						} else {
-							totalValue.innerHTML = total;
-						}
+function calc() {
+  var persons = document.getElementsByClassName('counter-block-input')[0],
+      restDays = document.getElementsByClassName('counter-block-input')[1],
+      place = document.getElementById('select'),
+      totalValue = document.getElementById('total'),
+      personsSum = 0,
+      daysSum = 0,
+      total = 0;
 
-					});
+  persons.oninput = function (e) {
+    return e.target.value = e.target.value.replace(/\D/g, '');
+  };
 
-					restDays.addEventListener('change', function () {
-						daysSum = this.value
-						total = (daysSum + personsSum)*4000;
-						if (persons.value == '' || restDays.value == '') {
-									totalValue.innerHTML = 0;
-						} else {
-							totalValue.innerHTML = total;
-						}
+  restDays.oninput = function (e) {
+    return e.target.value = e.target.value.replace(/\D/g, '');
+  };
 
-					});
+  totalValue.innerHTML = 0;
+  persons.addEventListener('change', function () {
+    personsSum = +this.value;
+    total = (daysSum + personsSum) * 4000;
 
-					place.addEventListener('change', function() {
-						if (restDays.value == '' || persons.value == '') {
-							totalValue.innerHTML = 0;
-						} else {
-							let a = total;
-							
-							totalValue.innerHTML = a * this.options[this.selectedIndex].value;
-						}
-					});
+    if (restDays.value == '' || persons.value == '') {
+      totalValue.innerHTML = 0;
+    } else {
+      totalValue.innerHTML = total;
+    }
+  });
+  restDays.addEventListener('change', function () {
+    daysSum = this.value;
+    total = (daysSum + personsSum) * 4000;
 
+    if (persons.value == '' || restDays.value == '') {
+      totalValue.innerHTML = 0;
+    } else {
+      totalValue.innerHTML = total;
+    }
+  });
+  place.addEventListener('change', function () {
+    if (restDays.value == '' || persons.value == '') {
+      totalValue.innerHTML = 0;
+    } else {
+      var a = total;
+      totalValue.innerHTML = a * this.options[this.selectedIndex].value;
+    }
+  });
 }
 
 module.exports = calc;
