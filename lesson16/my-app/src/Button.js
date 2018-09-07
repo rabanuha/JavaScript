@@ -4,7 +4,7 @@ import './App.css';
 
 class Button extends React.Component{
 	constructor(props) {
-		super(props)
+		super(props);
 		this.myClick = this.myClick.bind(this);
 	}
 
