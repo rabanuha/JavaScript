@@ -506,11 +506,8 @@ textarea:focus {
   font-style: normal;
   color: #000000;
 }
-.decoration .external,
-.decoration .rising,
-.decoration .roof {
-  display: none;
-}
+
+
 /*Our works*/
 .works {
   padding: 5rem 0;
@@ -889,11 +886,25 @@ textarea:focus {
 }
 /*Media*/
 @media (max-width: 1400px) {
+  .hide {
+    display: none;
+  }
+
+  .show {
+    display: block;
+  }
   .main {
     background-position: -30rem 0;
   }
 }
 @media (max-width: 1199px) {
+  .hide {
+    display: none;
+  }
+
+  .show {
+    display: block;
+  }
   .header_btn {
     padding: 1rem 1rem 1rem 5rem;
     font-size: 1.2rem;
@@ -944,6 +955,13 @@ textarea:focus {
 	}*/
 }
 @media (max-width: 991px) {
+  .hide {
+    display: none;
+  }
+
+  .show {
+    display: block;
+  }
   .section_header h2 {
     font-size: 2.8rem;
   }
@@ -1071,6 +1089,13 @@ textarea:focus {
   }
 }
 @media (max-width: 767px) {
+  .hide {
+    display: none;
+  }
+
+  .show {
+    display: block;
+  }
   .section_header h2 {
     font-size: 2.5rem;
   }
@@ -1191,6 +1216,13 @@ textarea:focus {
   }
 }
 @media (max-width: 530px) {
+  .hide {
+    display: none;
+  }
+
+  .show {
+    display: block;
+  }
   .form {
     margin-top: 2rem;
     padding: 1.5rem 2rem;
@@ -1464,6 +1496,13 @@ textarea:focus {
 }
 /* small devices, tablets */
 @media only screen and (max-width: 768px) {
+  .hide {
+    display: none;
+  }
+
+  .show {
+    display: block;
+  }
   .animated {
     /*css transitions*/
     -webkit-transition-property: none !important;
