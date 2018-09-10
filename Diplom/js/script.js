@@ -198,10 +198,12 @@ window.addEventListener('DOMContentLoaded', function() {
 				let popup = document.getElementsByClassName('popup')[0];
 
 				document.body.addEventListener('click', function(e) {
+
 					target = e.target;
 					if (target.classList.contains('phone_link')) {
 						popup.classList.add('show');
 						document.body.style.overflow = 'hidden';
+						event.preventDefault();
 					}
 				});
 
@@ -213,6 +215,27 @@ window.addEventListener('DOMContentLoaded', function() {
 					  document.body.style.overflow = '';
 					  }	
 				});
+
+
+				// Modal engineer
+
+				let headerBtn = document.getElementsByClassName('header_btn')[0],
+								popupEng = document.getElementsByClassName('popup_engineer')[0];
+
+				headerBtn.addEventListener('click', function() {
+						popupEng.classList.add('show');
+						document.body.style.overflow = 'hidden';
+
+				});
+
+				popupEng.addEventListener('click', function(e) {
+					let target = e.target;
+					if (target.classList.contains('popup_close') || target.classList.contains('popup_engineer') || target.tagName == 'STRONG') {
+					  popupEng.classList.remove('show');
+					  document.body.style.overflow = '';
+					  }	
+				});
+
 
 
 
