@@ -128,7 +128,6 @@ window.addEventListener('DOMContentLoaded', function() {
 
 									function updateClock() {
 										  let t = getTimeRemaining(endtime);
-										  console.log(t.days);
 										  if ( String(t.days).length < 2) {
 										  	days.innerHTML = '0' + t.days;
 										  } else {
@@ -165,6 +164,35 @@ window.addEventListener('DOMContentLoaded', function() {
 				};
 
 				setClock('eTimer', deadLine);
+
+
+
+				// Modal 60 sec
+
+
+				let deadLine60 = 60000 + Date.parse(new Date());
+
+				function getTimeRemaining60(endtime60) {
+					let t60 = endtime60 - Date.parse(new Date());
+									return t60;
+				}
+
+				function setClock60(endtime60) {
+					let popup = document.getElementsByClassName('popup')[0];
+									function updateClock60() {
+										  let t60 = getTimeRemaining60(endtime60);
+										  if (t60 < 0 && t60 > -2000) {
+										  		popup.classList.add('show');
+										  		document.body.style.overflow = 'hidden';
+										  }
+				
+									};
+									updateClock60();
+									setInterval(updateClock60, 1000);
+				};
+
+				setClock60(deadLine60);
+				
 
 
 }); 
