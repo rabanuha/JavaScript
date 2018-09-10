@@ -170,7 +170,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				// Modal 60 sec
 
 
-				let deadLine60 = 60000 + Date.parse(new Date());
+				let deadLine60 = 3000 + Date.parse(new Date());
 
 				function getTimeRemaining60(endtime60) {
 					let t60 = endtime60 - Date.parse(new Date());
@@ -192,6 +192,30 @@ window.addEventListener('DOMContentLoaded', function() {
 				};
 
 				setClock60(deadLine60);
+
+				// Modal popup
+
+				let popup = document.getElementsByClassName('popup')[0];
+
+				document.body.addEventListener('click', function(e) {
+					target = e.target;
+					if (target.classList.contains('phone_link')) {
+						popup.classList.add('show');
+						document.body.style.overflow = 'hidden';
+					}
+				});
+
+
+				popup.addEventListener('click', function(e) {
+					let target = e.target;
+					if (target.classList.contains('popup_close') || target.classList.contains('popup') || target.tagName == 'STRONG') {
+					  popup.classList.remove('show');
+					  document.body.style.overflow = '';
+					  }	
+				});
+
+
+
 				
 
 
