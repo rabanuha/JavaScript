@@ -170,7 +170,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				// Modal 60 sec
 
 
-				let deadLine60 = 3000 + Date.parse(new Date());
+				let deadLine60 = 60000 + Date.parse(new Date());
 
 				function getTimeRemaining60(endtime60) {
 					let t60 = endtime60 - Date.parse(new Date());
@@ -277,6 +277,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 							myDiv.classList.remove('popup_img');
 							pic.classList.remove('img_big');
+							pic.src = '';
 							document.body.style.overflow = ''
 
 						}
@@ -284,14 +285,58 @@ window.addEventListener('DOMContentLoaded', function() {
 				});
 
 				
-
-				
-
-				
+               	/////////////////			// Calc ///////////////////
 
 
+				// start popup_calc 
+
+				let popupCalc = document.getElementsByClassName('popup_calc')[0],
+								glazing = document.getElementsByClassName('glazing')[0];
+
+				glazing.addEventListener('click', function(e) {
+
+					let target = event.target;
+					if (target.classList.contains('glazing_price_btn')) {
+						popupCalc.classList.add('show');
+						document.body.style.overflow = 'hidden';
+					}
+				});
 
 
+
+				// start popup_calc_profile 
+
+				let calcBtn = document.getElementsByClassName('popup_calc_button')[0],
+								calcProfile = document.getElementsByClassName('popup_calc_profile')[0];
+
+				calcBtn.addEventListener('click', function() {
+
+					popupCalc.classList.remove('show');
+					calcProfile.classList.add('show');
+				});
+
+
+
+				// start popup_calc__end
+
+				let profileBtn = document.getElementsByClassName('popup_calc_profile_button')[0],
+								calcEnd = document.getElementsByClassName('popup_calc_end')[0];
+
+
+				profileBtn.addEventListener('click', function() {
+
+					calcProfile.classList.remove('show');
+					calcEnd.classList.add('show');
+				});
+
+
+
+			// 
+
+
+			// var arr = [], i = 0, obj = {a:1,b:2,c:3};
+			// for( arr[i++] in obj );
+			// arr = ['a','b','c']
 				
 
 
