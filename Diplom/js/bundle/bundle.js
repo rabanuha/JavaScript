@@ -331,22 +331,62 @@ function calc() {
   }
 
   balconIcons.addEventListener('click', function (event) {
-    event.preventDefault();
-    var target = event.target;
+     event.preventDefault();
+    var target = event.target,
+        type1Img=document.querySelector('.type1_img'),
+        type2Img=document.querySelector('.type2_img'),
+        type3Img=document.querySelector('.type3_img'),
+        type4Img=document.querySelector('.type4_img');
 
     if (target.classList.contains('type2_img')) {
+      target.style.display = 'inline-block';
+      target.style.width = '35%'
+
+      type1Img.style.display = 'inline-block';
+      type1Img.style.width = '15%'
+      type3Img.style.display = 'inline-block';
+      type3Img.style.width = '15%'
+      type4Img.style.display = 'inline-block';
+      type4Img.style.width = '15%'
       showTabBalconIcon(1);
     }
 
     if (target.classList.contains('type1_img')) {
+      target.style.display = 'inline-block';
+      target.style.width = '35%'
+
+      type2Img.style.display = 'inline-block';
+      type2Img.style.width = '15%'
+      type3Img.style.display = 'inline-block';
+      type3Img.style.width = '15%'
+      type4Img.style.display = 'inline-block';
+      type4Img.style.width = '15%'
       showTabBalconIcon(0);
     }
 
     if (target.classList.contains('type3_img')) {
+      target.style.display = 'inline-block';
+      target.style.width = '35%'
+
+      type1Img.style.display = 'inline-block';
+      type1Img.style.width = '15%'
+      type2Img.style.display = 'inline-block';
+      type2Img.style.width = '15%'
+      type4Img.style.display = 'inline-block';
+      type4Img.style.width = '15%'
       showTabBalconIcon(2);
     }
 
     if (target.classList.contains('type4_img')) {
+      target.style.display = 'inline-block';
+      target.style.width = '35%'
+
+      type1Img.style.display = 'inline-block';
+      type1Img.style.width = '15%'
+      type3Img.style.display = 'inline-block';
+      type3Img.style.width = '15%'
+      type2Img.style.display = 'inline-block';
+      type2Img.style.width = '15%'
       showTabBalconIcon(3);
     }
   }); // Сalculation
