@@ -1,50 +1,41 @@
-function	tabGlazingBlock() {
+"use strict";
 
-	let tabGlazing 							= document.getElementsByClassName('tab'),
-					tabContent = document.getElementsByClassName('tabcontent'),
-					tabGlazingContent = document.getElementsByClassName('glazing_slider')[0];
+function tabGlazingBlock() {
+  var tabGlazing = document.getElementsByClassName('tab'),
+      tabContent = document.getElementsByClassName('tabcontent'),
+      tabGlazingContent = document.getElementsByClassName('glazing_slider')[0];
 
+  function hideTabContent(a) {
+    for (var i = a; i < tabContent.length; i++) {
+      tabGlazing[i].classList.remove('active');
+      tabContent[i].classList.remove('show');
+      tabContent[i].classList.add('hide');
+    }
+  }
 
-	function hideTabContent(a) {
-	  for (let i = a; i < tabContent.length; i++) {
+  hideTabContent(1);
 
+  function showTabContent(b) {
+    if (tabContent[b].classList.contains('hide')) {
+      hideTabContent(0);
+      tabContent[b].classList.remove('hide');
+      tabContent[b].classList.add('show');
+      tabGlazing[b].classList.add('active');
+    }
+  }
 
-					tabGlazing[i].classList.remove('active');
-	    tabContent[i].classList.remove('show');
-	    tabContent[i].classList.add('hide');
-	  }
-	}
+  tabGlazingContent.addEventListener('click', function (event) {
+    var target = event.target;
 
-	hideTabContent(1);
-
-
-
-
-	function showTabContent(b) {
-	  if (tabContent[b].classList.contains('hide')) {
-	    hideTabContent(0);
-	    tabContent[b].classList.remove('hide');
-	    tabContent[b].classList.add('show');
-	    tabGlazing[b].classList.add('active');
-	  }
-	}
-
-
-	tabGlazingContent.addEventListener('click', function(event) {
-
-		let target = event.target;
-		if (target.classList.contains('tab')) {
-		  for (let i = 0; i < tabGlazing.length; i++) {
-		    if (target == tabGlazing[i]) {
-		      showTabContent(i);
-		      break;
-		    }
-		  }
-		}
-
-
-	});
-
+    if (target.classList.contains('tab')) {
+      for (var i = 0; i < tabGlazing.length; i++) {
+        if (target == tabGlazing[i]) {
+          showTabContent(i);
+          break;
+        }
+      }
+    }
+  });
 }
 
 module.exports = tabGlazingBlock;
