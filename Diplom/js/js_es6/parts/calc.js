@@ -50,7 +50,7 @@ function calc() {
 	document.body.addEventListener('click', function(e) {
 
 		let target = event.target;
-		if (target.classList.contains('popup_calc_close') || target.tagName == 'STRONG' || target.classList.contains('popup_calc_profile_close')) {
+		if (target.classList.contains('popup_calc_close') || target.tagName == 'STRONG' || target.classList.contains('popup_calc_profile_close') || target.classList.contains('popup_calc_end_close')) {
 			popupCalc.classList.remove('show');
 			showTabBalconIcon(0);
 			calcProfile.classList.remove('show');
@@ -98,21 +98,64 @@ function calc() {
 
 
 		balconIcons.addEventListener('click', function(event) {
-			event.preventDefault();
+			 event.preventDefault();
+		        let target = event.target,
+		            type1Img=document.querySelector('.type1_img'),
+		            type2Img=document.querySelector('.type2_img'),
+		            type3Img=document.querySelector('.type3_img'),
+		            type4Img=document.querySelector('.type4_img');
 
-			let target = event.target;
-			if (target.classList.contains('type2_img')) {
-			      showTabBalconIcon(1);
-			}
-			if (target.classList.contains('type1_img')) {
-			      showTabBalconIcon(0);
-			}
-			if (target.classList.contains('type3_img')) {
-			      showTabBalconIcon(2);
-			}
-			if (target.classList.contains('type4_img')) {
-			      showTabBalconIcon(3);
-			}
+		        if (target.classList.contains('type2_img')) {
+		          target.style.display = 'inline-block';
+		          target.style.width = '35%'
+
+		          type1Img.style.display = 'inline-block';
+		          type1Img.style.width = '15%'
+		          type3Img.style.display = 'inline-block';
+		          type3Img.style.width = '15%'
+		          type4Img.style.display = 'inline-block';
+		          type4Img.style.width = '15%'
+		          showTabBalconIcon(1);
+		        }
+
+		        if (target.classList.contains('type1_img')) {
+		          target.style.display = 'inline-block';
+		          target.style.width = '35%'
+
+		          type2Img.style.display = 'inline-block';
+		          type2Img.style.width = '15%'
+		          type3Img.style.display = 'inline-block';
+		          type3Img.style.width = '15%'
+		          type4Img.style.display = 'inline-block';
+		          type4Img.style.width = '15%'
+		          showTabBalconIcon(0);
+		        }
+
+		        if (target.classList.contains('type3_img')) {
+		          target.style.display = 'inline-block';
+		          target.style.width = '35%'
+
+		          type1Img.style.display = 'inline-block';
+		          type1Img.style.width = '15%'
+		          type2Img.style.display = 'inline-block';
+		          type2Img.style.width = '15%'
+		          type4Img.style.display = 'inline-block';
+		          type4Img.style.width = '15%'
+		          showTabBalconIcon(2);
+		        }
+
+		        if (target.classList.contains('type4_img')) {
+		          target.style.display = 'inline-block';
+		          target.style.width = '35%'
+
+		          type1Img.style.display = 'inline-block';
+		          type1Img.style.width = '15%'
+		          type3Img.style.display = 'inline-block';
+		          type3Img.style.width = '15%'
+		          type2Img.style.display = 'inline-block';
+		          type2Img.style.width = '15%'
+		          showTabBalconIcon(3);
+		        }
 
 
 		});
