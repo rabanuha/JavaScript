@@ -286,7 +286,7 @@ function calc() {
   document.body.addEventListener('click', function (e) {
     var target = event.target;
 
-    if (target.classList.contains('popup_calc_close') || target.tagName == 'STRONG' || target.classList.contains('popup_calc_profile_close')) {
+    if (target.classList.contains('popup_calc_close') || target.tagName == 'STRONG' || target.classList.contains('popup_calc_profile_close') || target.classList.contains('popup_calc_end_close')) {
       popupCalc.classList.remove('show');
       showTabBalconIcon(0);
       calcProfile.classList.remove('show');
